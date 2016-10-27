@@ -10,7 +10,9 @@ Sort = (function () {
                 }                
             }
             if (max_index != i) {
-                Flip(vetor, 0, max_index + 1);
+                if (max_index > 0) {
+                    Flip(vetor, 0, max_index + 1);                    
+                }
                 Flip(vetor, 0, i+1);
             }
         }
@@ -28,9 +30,16 @@ Sort = (function () {
         }
     }
 
+    function arrayToHtml(vetor) {
+        
+    }
+
     return {
         pancake: function (vetor) {
             return pancakeSort(vetor);
+        },
+        buildHtml: function (vetor) {
+            return arrayToHtml(vetor);
         }
     }  
 })()
