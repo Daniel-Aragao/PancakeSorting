@@ -1,0 +1,14 @@
+body{
+                background-color: grey;
+                margin-top:10px;
+            }
+
+#result span{
+    border: 1px solid black;
+    margin-left: 3px;
+    padding: 3px;
+}
+
+#result-div{
+    word-break: break-word;
+}
