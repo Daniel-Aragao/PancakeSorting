@@ -12,3 +12,8 @@ body{
 #result-div{
     word-break: break-word;
 }
+
+#container-pancake div:hover{
+    border-radius: 50%;
+    background-color: orange;
+}

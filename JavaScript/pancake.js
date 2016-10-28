@@ -45,13 +45,14 @@ Sort = (function () {
         var fator = menorBarra / menor;
 
         var container = document.createElement("div")
+        container.id = "container-pancake"
 
         vetor.forEach(function (v, i) {
             var tamanho = menorBarra + fator * (v - menor);
             var div = document.createElement("div");
 
             red = Math.abs((tamanho*fator)%255);
-            gree = Math.abs((tamanho/fator)%255);
+            gree = Math.abs(((tamanho*(i+v))/fator)%255);
             blue = Math.abs((tamanho * height/fator) % 255);
             console.log(fator)
 
