@@ -1,6 +1,6 @@
 Sort = (function () {
     
-    function pancakeSort(vetor) {
+    function pancakeSort(vetor, interfaceFunc) {
         var len = vetor.length;
         for (var i = len - 1; i > 0; i--){
             var max_index = 0;
@@ -11,9 +11,11 @@ Sort = (function () {
             }
             if (max_index != i) {
                 if (max_index > 0) {
-                    Flip(vetor, 0, max_index + 1);                    
+                    Flip(vetor, 0, max_index + 1);
+                    interfaceFunc(vetor)
                 }
-                Flip(vetor, 0, i+1);
+                Flip(vetor, 0, i + 1);
+                interfaceFunc(vetor)
             }
         }
 
@@ -45,24 +47,22 @@ Sort = (function () {
         var fator = menorBarra / menor;
 
         var container = document.createElement("div")
-        container.id = "container-pancake"
+        container.className += ' container-pancake '
 
         vetor.forEach(function (v, i) {
             var tamanho = menorBarra + fator * (v - menor);
             var div = document.createElement("div");
 
             red = Math.abs((tamanho*fator)%255);
-            gree = Math.abs(((tamanho*(i+v))/fator)%255);
+            gree = Math.abs(((tamanho*(v))/fator)%255);
             blue = Math.abs((tamanho * height/fator) % 255);
-            console.log(fator)
 
             div.style.height = height + "px";
-            div.style.background = "black";
             div.style.width = tamanho + "px";
-            div.style.margin = "auto";
+            /*div.style.margin = "auto";
             div.style.marginTop = "5px";
             div.style.marginBottom = "5px";
-            div.style.borderRadius = '5px';
+            div.style.borderRadius = '5px';*/
             div.style.backgroundColor = "rgb(" + red + "," + gree + "," + blue + ")"
             if (digits) {
                 div.innerHTML = v;
@@ -77,8 +77,8 @@ Sort = (function () {
     }
 
     return {
-        pancake: function (vetor) {
-            return pancakeSort(vetor);
+        pancake: function (vetor, interfaceFunc) {
+            return pancakeSort(vetor, interfaceFunc);
         },
         PancakeHtml: function (vetor, menorBarraWidth, height, digits) {
             return arrayToPancakeHtml(vetor, menorBarraWidth, height, digits);

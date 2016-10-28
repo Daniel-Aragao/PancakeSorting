@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="css/balloon.css">
         <script src="JavaScript/jquery-latest.js"></script>
         <script src="JavaScript/bootstrap.min.js"></script>
-        <script src="JavaScript/JQueryRotate.js"></script>
         <script src="JavaScript/balloon.js"></script>
         <script src="JavaScript/pancake.js" ></script>
         <link rel="icon" href="pancakes.png">
@@ -19,24 +18,375 @@
         <div class="col-lg-10 col-lg-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Pancake sorting</div>
-                <div class="panel-body">
-                    <div class="col-lg-12">
-                        <div class="col-lg-3">
-                            <input type="text" id="dados" class="form-control" value="10,3,7,5,1,4,2,6,9,8"></div>
-                        <div class="col-lg-3">
-                            <button type="button" class="btn btn-primary" id="ord">Ordenar</button>
-                        </div>
-                        <div id="result-div" class="col-lg-6">
-                            <span>Resultado: </span>
-                            <span id="result" class="text-capitalize"></span>
-                        </div>
-                    </div>
+                <div class="panel-body">                    
                     <div class="col-lg-12" style="margin-top:10px;">
                         <fieldset>
+                            <legend>Problema</legend>
+                            <div>
+                                <img src="pancake.gif" width="70" height="200" style="float:left">
+                                <h4>O problema das panquecas</h4>
+                                <p>Para começar, imagine uma pilha de panquecas, 
+                                    de diferentes tamanhos, empilhadas numa mesa
+                                    e prestes a cair, pois está desordenada, 
+                                    você tem uma espátula na mão e então resolve
+                                    utiliza-la para impedir a queda da pilha.
+                                </p>
+                                <p>
+                                    Para solucionar o problema leve em consideração as 
+                                    observações a seguir
+                                </p>
+                                <ul style="margin-left: 70px;">
+                                    <li>
+                                        Você só pode posicionar a espátula em baixo de uma ou mais panquecas
+                                    </li>
+                                    <li>
+                                        O único movimento permitido com a espátula é inverter a pilha que está a cima dela 
+                                    </li>
+                                    <li>
+                                        As panquecas Devem ser ordenadas da maior para a menor de baixo para cima
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+
+                                <h4>O problema das panquecas queimadas</h4>
+                                <p>
+                                    Aqui as coisas já começam a complicar, caso não estivesse complicado ainda, pois as panquecas
+                                    , desta vez, possuem uma propriedade a mais e é um lado queimado. Como assim? Um dos lados
+                                    das panquecas não pode ser vista, você servirá as panquecas a um cliente exigente, ou seja,
+                                    no fim o lado queimado não deve ser visto.
+                                </p>
+                                <p>Quais as novas observações?</p>
+                                <ul>
+                                    <li>Ao inverter a pilha com sua espátula o lado queimado acabará na direção contrária a anterior</li>
+                                    <li>
+                                        No final, além de ordenadas, as panquecas devem se encontrar com as partes queimadas viradas
+                                        para baixo.
+                                    </li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Origem</legend>
+                            <div>
+                                <p>
+                                    O problema é da década de 70 e tem sua primeira solução 
+                                    em 1979 por Bill Gates com a marca de O(15n/14) e Ω(18n/11) em quantidade de flip
+                                    (inversão das panquecas)
+                                </p>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Algoritmo</legend>
+                            <div>
+                                <img src="algoritmo.png" alt="">
+                            </div>
+                        </fieldset>
+                        <fieldset>
                             <legend>Passo-a-passo</legend>
+                            <div class="col-lg-3">
+                                <input type="text" id="dados" class="form-control" value="3,7,5,10,1,4,2,6,9,8"></div>
+                            <div class="col-lg-3">
+                                <button type="button" class="btn btn-primary" id="ord">Ordenar</button>
+                            </div>
+                            <div id="result-div" class="col-lg-6">
+                                <span>Resultado: </span>
+                                <span id="result" class="text-capitalize"></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr>
                             <div id="container">
 
                             </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Curiosidades</legend>
+                            <div>
+                                <img src="pancake2.gif" style="float:left">
+                                <div class="clearfix"></div>
+                                <h4>Complexidade de tempo</h4>
+                                <p>O(n(5n)) = O(n²)</p>
+                                <h4>Complexidade de memória</h4>
+                                <p>O(4n) = O(n)</p>
+                            </div>
+
+                            <p>
+                                <h4>The burnt pancake problem</h4>
+    In a more difficult variation called the burnt pancake problem, the bottom of each pancake in the pile is burnt, and the sort must be completed with the burnt side of every pancake down. In 2008, a group of undergraduates built a bacterial computer that can solve a simple example of the burnt pancake problem by programming <i> E. coli</i> to flip segments of DNA which are analogous to burnt pancakes. DNA has an orientation (5' and 3') and an order (promoter before coding). Even though the processing power expressed by DNA flips is low, the high number of bacteria in a culture provides a large parallel computing platform. The bacteria report when they have solved the problem by becoming antibiotic resistant.
+                            </p>
+
+<table class="wikitable" align="center" style="float: center; text-align: right;">
+<caption>Number of stacks of given height <span class="texhtml"><i>n</i></span> that require <span class="texhtml"><i>k</i></span>&#160;flips to get sorted</caption>
+<tr>
+<th rowspan="2">Height<br />
+<span class="texhtml"><i>n</i></span></th>
+<th colspan="16"><span class="texhtml"><i>k</i></span></th>
+</tr>
+<tr>
+<th width="65px">0</th>
+<th width="65px">1</th>
+<th width="65px">2</th>
+<th width="65px">3</th>
+<th width="65px">4</th>
+<th width="65px">5</th>
+<th width="65px">6</th>
+<th width="65px">7</th>
+<th width="65px">8</th>
+<th width="65px">9</th>
+<th width="65px">10</th>
+<th width="65px">11</th>
+<th width="65px">12</th>
+<th width="65px">13</th>
+<th width="65px">14</th>
+<th width="65px">15</th>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>3</th>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>4</th>
+<td>1</td>
+<td>3</td>
+<td>6</td>
+<td>11</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>5</th>
+<td>1</td>
+<td>4</td>
+<td>12</td>
+<td>35</td>
+<td>48</td>
+<td>20</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>6</th>
+<td>1</td>
+<td>5</td>
+<td>20</td>
+<td>79</td>
+<td>199</td>
+<td>281</td>
+<td>133</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>7</th>
+<td>1</td>
+<td>6</td>
+<td>30</td>
+<td>149</td>
+<td>543</td>
+<td>1357</td>
+<td>1903</td>
+<td>1016</td>
+<td>35</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>8</th>
+<td>1</td>
+<td>7</td>
+<td>42</td>
+<td>251</td>
+<td>1191</td>
+<td>4281</td>
+<td>10561</td>
+<td>15011</td>
+<td>8520</td>
+<td>455</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>9</th>
+<td>1</td>
+<td>8</td>
+<td>56</td>
+<td>391</td>
+<td>2278</td>
+<td>10666</td>
+<td>38015</td>
+<td>93585</td>
+<td>132697</td>
+<td>79379</td>
+<td>5804</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>10</th>
+<td>1</td>
+<td>9</td>
+<td>72</td>
+<td>575</td>
+<td>3963</td>
+<td>22825</td>
+<td>106461</td>
+<td>377863</td>
+<td>919365</td>
+<td>1309756</td>
+<td>814678</td>
+<td>73232</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>11</th>
+<td>1</td>
+<td>10</td>
+<td>90</td>
+<td>809</td>
+<td>6429</td>
+<td>43891</td>
+<td>252737</td>
+<td>1174766</td>
+<td>4126515</td>
+<td>9981073</td>
+<td>14250471</td>
+<td>9123648</td>
+<td>956354</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th>12</th>
+<td>1</td>
+<td>11</td>
+<td>110</td>
+<td>1099</td>
+<td>9883</td>
+<td>77937</td>
+<td>533397</td>
+<td>3064788</td>
+<td>14141929</td>
+<td>49337252</td>
+<td>118420043</td>
+<td>169332213</td>
+<td>111050066</td>
+<td>13032704</td>
+<td>167</td>
+<td></td>
+</tr>
+<tr>
+<th>13</th>
+<td>1</td>
+<td>12</td>
+<td>132</td>
+<td>1451</td>
+<td>14556</td>
+<td>130096</td>
+<td>1030505</td>
+<td>7046318</td>
+<td>40309555</td>
+<td>184992275</td>
+<td>639783475</td>
+<td>1525125357</td>
+<td>2183056566</td>
+<td>1458653648</td>
+<td>186874852</td>
+<td>2001</td>
+</tr>
+</table>
                         </fieldset>
                     </div>
                 </div>
@@ -48,6 +398,7 @@
         var container = $("#container"); 
         var result = $('#result');
         $("#ord").on('click', function(){
+            container.html("")
             result.text("");
             ivetor = []
             vetor = $("#dados").val().split(',');
@@ -55,19 +406,20 @@
                 vetor[i] = parseInt(vetor[i]);
                 ivetor.push(vetor[i]);
             });
-
-            vetor = Sort.pancake(vetor);
+            pancakeInterface(vetor);
+            vetor = Sort.pancake(vetor, pancakeInterface);
             
             vetor.forEach(function(v,i){ 
                 result.append("<span>" + vetor[i] + "</span>")
             });
-            pancakeInterface(ivetor);
+
+            $(".container-pancake").addClass("col-lg-6")
+            //pancakeInterface(ivetor);
         });
         
         function pancakeInterface(vetor){
-            
-            container.html(Sort.PancakeHtml(vetor,30,25, true));
 
+            container.append(Sort.PancakeHtml(vetor,30,35, true));            
         }
 
         $("#ord").click()
