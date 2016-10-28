@@ -30,16 +30,57 @@ Sort = (function () {
         }
     }
 
-    function arrayToHtml(vetor) {
-        
+    function getMenor(vetor) {
+        var menor = vetor[0];
+        vetor.forEach(function (v, i) {
+            if (v < menor) {
+                menor = v;
+           } 
+        });
+        return menor;
+    }
+
+    function arrayToPancakeHtml(vetor, menorBarra, height, digits) {
+        var menor = getMenor(vetor);
+        var fator = menorBarra / menor;
+
+        var container = document.createElement("div")
+
+        vetor.forEach(function (v, i) {
+            var tamanho = menorBarra + fator * (v - menor);
+            var div = document.createElement("div");
+
+            red = Math.abs((tamanho*fator)%255);
+            gree = Math.abs((tamanho/fator)%255);
+            blue = Math.abs((tamanho * height/fator) % 255);
+            console.log(fator)
+
+            div.style.height = height + "px";
+            div.style.background = "black";
+            div.style.width = tamanho + "px";
+            div.style.margin = "auto";
+            div.style.marginTop = "5px";
+            div.style.marginBottom = "5px";
+            div.style.borderRadius = '5px';
+            div.style.backgroundColor = "rgb(" + red + "," + gree + "," + blue + ")"
+            if (digits) {
+                div.innerHTML = v;
+                div.style.color = 'white';
+                div.style.textAlign = "center";                
+            }
+
+            container.appendChild(div);
+        });
+
+        return container;
     }
 
     return {
         pancake: function (vetor) {
             return pancakeSort(vetor);
         },
-        buildHtml: function (vetor) {
-            return arrayToHtml(vetor);
+        PancakeHtml: function (vetor, menorBarraWidth, height, digits) {
+            return arrayToPancakeHtml(vetor, menorBarraWidth, height, digits);
         }
     }  
 })()

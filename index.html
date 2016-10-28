@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/balloon.css">
         <script src="JavaScript/jquery-latest.js"></script>
         <script src="JavaScript/bootstrap.min.js"></script>
+        <script src="JavaScript/JQueryRotate.js"></script>
         <script src="JavaScript/balloon.js"></script>
         <script src="JavaScript/pancake.js" ></script>
         <link rel="icon" href="pancakes.png">
@@ -63,19 +64,13 @@
             pancakeInterface(ivetor);
         });
         
-        running = false;
         function pancakeInterface(vetor){
-            if(running) {
-                var opt = {timeOut = 2000, useImage = true};
-                Balloon["danger"]("Animação em andamento",opt);
-                return;
-            }
-            running = true;
+            
+            container.html(Sort.PancakeHtml(vetor,10,25, true));
 
-            container.html(Sort.arrayToHtml(vetor));
-
-            running = false;
         }
+
+        $("#ord").click()
     </script>
     </body>
 </html>
